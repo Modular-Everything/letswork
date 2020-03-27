@@ -13,7 +13,6 @@ const Logo = () => {
       <li>work</li>
       <li>.</li>
       <li>to</li>
-      <li>/gether</li>
     </Lockup>
   );
 };
