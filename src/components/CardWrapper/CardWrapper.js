@@ -4,10 +4,16 @@ import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled/macro';
 
+import Container from '../Container';
+
 // ====================================
 
 const CardWrapper = ({ children }) => {
-  return <Cards>{children}</Cards>;
+  return (
+    <Container>
+      <Cards>{children}</Cards>
+    </Container>
+  );
 };
 
 export default CardWrapper;
