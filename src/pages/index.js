@@ -1,13 +1,17 @@
 import React from 'react';
+
 import Layout from '../components/Layout';
+import CardWrapper from '../components/CardWrapper';
+import ProfileCard from '../components/ProfileCard';
 
 // ====================================
 
 const Index = () => {
   return (
     <Layout>
-      <h1>I am pretty basic</h1>
-      <p>and I like it</p>
+      <CardWrapper>
+        <ProfileCard />
+      </CardWrapper>
     </Layout>
   );
 };
