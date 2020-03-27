@@ -1,1 +1,1 @@
-import './src/utils/globals.css'
+import 'tailwindcss/dist/base.css';
