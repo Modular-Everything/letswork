@@ -17,10 +17,6 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-emotion`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: { path: `./static/images/` },
-    },
-    {
       resolve: `gatsby-source-airtable`,
       options: {
         apiKey: process.env.AIRTABLE_API_KEY,
