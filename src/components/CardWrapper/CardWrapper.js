@@ -23,7 +23,7 @@ export default CardWrapper;
 const Cards = styled.section(
   css`
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1rem;
     list-style: none;
   `,
