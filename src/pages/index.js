@@ -49,7 +49,6 @@ export const data = graphql`
             Firstname
             Lastname
             Type
-            Creation_Date(fromNow: true)
             Country {
               data {
                 Name
