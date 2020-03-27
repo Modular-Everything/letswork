@@ -26,5 +26,5 @@ const Cards = styled.section(
 // ====================================
 
 CardWrapper.propTypes = {
-  children: PropTypes.objectOf(PropTypes.symbol).isRequired,
+  children: PropTypes.arrayOf(PropTypes.symbol).isRequired,
 };

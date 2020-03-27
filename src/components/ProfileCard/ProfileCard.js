@@ -1,47 +1,44 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { css } from '@emotion/core';
 import styled from '@emotion/styled/macro';
 import tw from 'twin.macro';
 
+import { hasProtocol } from '../../helpers';
 import ButtonTertiary from '../ButtonTertiary';
 
 // ====================================
 
-const ProfileCard = () => {
-  const UNSPLASH = [
-    'rikonavt',
-    'timetiff',
-    'bormot',
-    'bradleycdunn',
-    'photologic',
-    'bredi',
-    'mackiec',
-    'kobuagency',
-    'ashkfor121',
-  ];
-  const RANDOM_IMAGE = UNSPLASH[Math.floor(Math.random() * UNSPLASH.length)];
+const ProfileCard = (props) => {
+  const { city, website, firstName, lastName, role, country, images } = props;
+
   return (
     <Card>
-      <a href="#">
+      <a href={hasProtocol(website)} target="_blank" rel="noopener noreferrer">
         <MediaWrapper>
           <img
-            src={`https://source.unsplash.com/user/${RANDOM_IMAGE}/664x470`}
-            alt=""
+            src={images[0].thumbnails.large.url}
+            alt={`Images of ${firstName}'s work`}
+            width={images[0].thumbnails.large.width}
+            height={images[0].thumbnails.large.height}
           />
         </MediaWrapper>
         <MetaWrapper>
           <div>
-            <MetaName>Leornado Da Vinci</MetaName>
-            <MetaRole>Freelance</MetaRole>
+            <MetaName>
+              {firstName} {lastName}
+            </MetaName>
+            <MetaRole>{role}</MetaRole>
           </div>
           <div>
-            <MetaLocation>Vinci, Republic of Florence</MetaLocation>
+            <MetaLocation>
+              {city}, {country}
+            </MetaLocation>
           </div>
         </MetaWrapper>
         <ContactButton>
-          <ButtonTertiary label="Contact Leonardo" />
+          <ButtonTertiary label={`Contact ${firstName}`} />
         </ContactButton>
       </a>
     </Card>
@@ -54,7 +51,7 @@ export default ProfileCard;
 
 const Card = styled.li(
   tw`
-    font-sans bg-white shadow-sm overflow-hidden rounded-md
+    font-sans bg-white shadow-md overflow-hidden rounded-md
   `,
 );
 
@@ -108,4 +105,20 @@ const ContactButton = styled.div(
 
 // ====================================
 
-// ProfileCard.propTypes = {};
+ProfileCard.propTypes = {
+  city: PropTypes.string.isRequired,
+  website: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+  images: PropTypes.arrayOf({
+    thumbnails: PropTypes.objectOf({
+      large: PropTypes.objectOf({
+        url: PropTypes.string.isRequired,
+        height: PropTypes.number.isRequired,
+        width: PropTypes.number.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+};
