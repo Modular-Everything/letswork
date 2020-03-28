@@ -28,7 +28,7 @@ export default ButtonTertiary;
 
 const ButtonWrapper = styled.div(
   tw`
-    flex flex-row justify-between text-xl text-olive
+    flex flex-row justify-between text-xl text-grass
   `,
 );
 

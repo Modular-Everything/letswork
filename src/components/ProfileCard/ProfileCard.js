@@ -104,7 +104,7 @@ const MetaLocation = styled.small(
 
 const ContactButton = styled.div(
   tw`
-    bg-lime p-5
+    bg-black p-4
   `,
 );
 
