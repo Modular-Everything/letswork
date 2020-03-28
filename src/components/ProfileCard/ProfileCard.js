@@ -14,8 +14,6 @@ const ProfileCard = (props) => {
   const { city, website, firstName, lastName, role, country, images } = props;
   const IMG_SRC = images[0].thumbnails !== null ? images[0].thumbnails : null;
 
-  console.log(images[0].thumbnails);
-
   return (
     <Card>
       <a href={hasProtocol(website)} target="_blank" rel="noopener noreferrer">
