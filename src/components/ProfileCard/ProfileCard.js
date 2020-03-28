@@ -12,17 +12,22 @@ import ButtonTertiary from '../ButtonTertiary';
 
 const ProfileCard = (props) => {
   const { city, website, firstName, lastName, role, country, images } = props;
+  const IMG_SRC = images[0].thumbnails !== null ? images[0].thumbnails : null;
+
+  console.log(images[0].thumbnails);
 
   return (
     <Card>
       <a href={hasProtocol(website)} target="_blank" rel="noopener noreferrer">
         <MediaWrapper>
-          <img
-            src={images[0].thumbnails.large.url}
-            alt={`Images of ${firstName}'s work`}
-            width={images[0].thumbnails.large.width}
-            height={images[0].thumbnails.large.height}
-          />
+          {IMG_SRC !== null && (
+            <img
+              src={images[0].thumbnails.large.url}
+              alt={`Images of ${firstName}'s work`}
+              width={images[0].thumbnails.large.width}
+              height={images[0].thumbnails.large.height}
+            />
+          )}
         </MediaWrapper>
         <MetaWrapper>
           <div>
@@ -57,7 +62,7 @@ const Card = styled.li(
 
 const MediaWrapper = styled.div(
   tw`
-    pb-2/3 relative
+    pb-2/3 relative bg-grass
   `,
   css`
     & img {
