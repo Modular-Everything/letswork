@@ -12,7 +12,7 @@ import ButtonTertiary from '../ButtonTertiary';
 
 const ProfileCard = (props) => {
   const { city, website, firstName, lastName, role, country, images } = props;
-  const IMG_SRC = images[0].thumbnails !== null ? images[0].thumbnails : null;
+  const IMG_SRC = images !== null ? images[0].thumbnails : null;
 
   return (
     <Card>
