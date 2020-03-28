@@ -9,23 +9,27 @@ import tw from 'twin.macro';
 
 const Container = (props) => {
   const { children } = props;
-  const breakpoints = [640, 768, 1024, 1280];
-  const PageContainer = styled.div(
-    tw`
-      mx-auto
-      px-4
-      w-full
-    `,
-    css`
-      ${breakpoints.map(
-        (minWidth) =>
-          `@media(min-width: ${minWidth}px) { max-width: ${minWidth}px }`,
-      )}
-    `,
-  );
-
   return <PageContainer>{children}</PageContainer>;
 };
+
+export default Container;
+
+// ====================================
+
+const breakpoints = [640, 768, 1024, 1280];
+const PageContainer = styled.div(
+  tw`
+    mx-auto
+    px-4
+    w-full
+  `,
+  css`
+    ${breakpoints.map(
+      (minWidth) =>
+        `@media(min-width: ${minWidth}px) { max-width: ${minWidth}px }`,
+    )}
+  `,
+);
 
 // ====================================
 
@@ -37,5 +41,3 @@ Container.propTypes = {
 };
 
 // ====================================
-
-export default Container;
