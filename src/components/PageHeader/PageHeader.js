@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import { css } from '@emotion/core';
 import styled from '@emotion/styled/macro';
@@ -7,6 +8,7 @@ import tw from 'twin.macro';
 import Container from '../Container';
 import Logo from '../Logo';
 import ButtonPrimary from '../ButtonPrimary';
+import ButtonTertiary from '../ButtonTertiary';
 
 // ====================================
 
@@ -20,6 +22,14 @@ const PageHeader = () => {
             has been set up to promote creative freelancers and small agencies
             who are in need of work due to the COVID-19 pandemic.
           </p>
+          <Link to="/about">
+            <ButtonTertiary
+              label="Find out more"
+              fullWidth={false}
+              dark
+              size={1}
+            />
+          </Link>
         </Copy>
         <CTA>
           <a
@@ -46,7 +56,7 @@ const PageHeaderWrap = styled.section(
   tw`
     py-12
     sm:py-16
-    lg:py-24 lg:grid
+    lg:py-20 lg:grid
   `,
   css`
     & {
@@ -60,6 +70,11 @@ const Copy = styled.div(
     text-black font-sans font-normal text-xl leading-snug
     sm:text-2xl
     lg:text-3xl
+  `,
+  css`
+    & p {
+      ${tw`mb-12`}
+    }
   `,
 );
 
