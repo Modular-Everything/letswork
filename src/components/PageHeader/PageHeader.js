@@ -73,7 +73,7 @@ const Copy = styled.div(
   `,
   css`
     & p {
-      ${tw`mb-12`}
+      ${tw`mb-8 lg:mb-12`}
     }
   `,
 );
