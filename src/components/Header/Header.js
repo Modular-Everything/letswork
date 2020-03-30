@@ -27,7 +27,7 @@ export default Header;
 
 const HeaderWrap = styled.header(
   tw`
-    bg-grass py-8 mb-16
+    bg-grass py-8
   `,
 );
 

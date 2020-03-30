@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { css } from '@emotion/core';
 import styled from '@emotion/styled/macro';
+import tw from 'twin.macro';
 
 import Container from '../Container';
 
@@ -21,6 +22,9 @@ export default CardWrapper;
 // ====================================
 
 const Cards = styled.section(
+  tw`
+    my-16
+  `,
   css`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
