@@ -20,6 +20,7 @@ const Index = ({ data }) => {
               website={node.data.Website}
               firstName={node.data.Firstname}
               lastName={node.data.Lastname}
+              email={node.data.Email}
               role={node.data.Type}
               country={node.data.Country[0].data.Name}
               images={node.data.Portfolio_Images___Your_Photos}
@@ -48,6 +49,7 @@ export const data = graphql`
             Website
             Firstname
             Lastname
+            Email
             Type
             Country {
               data {
@@ -80,6 +82,7 @@ Index.propTypes = {
         Website: PropTypes.string.isRequired,
         Firstname: PropTypes.string.isRequired,
         Lastname: PropTypes.string.isRequired,
+        Email: PropTypes.string.isRequired,
         Type: PropTypes.string.isRequired,
         Country: PropTypes.array.isRequired,
         Portfolio_Images___Your_Photos: PropTypes.array.isRequired,

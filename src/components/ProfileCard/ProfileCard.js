@@ -11,12 +11,22 @@ import ButtonTertiary from '../ButtonTertiary';
 // ====================================
 
 const ProfileCard = (props) => {
-  const { city, website, firstName, lastName, role, country, images } = props;
+  const {
+    city,
+    website,
+    email,
+    firstName,
+    lastName,
+    role,
+    country,
+    images,
+  } = props;
   const IMG_SRC = images !== null ? images[0].thumbnails : null;
+  const CONTACT = website ? hasProtocol(website) : `mailto:${email}`;
 
   return (
     <Card>
-      <a href={hasProtocol(website)} target="_blank" rel="noopener noreferrer">
+      <a href={CONTACT} target="_blank" rel="noopener noreferrer">
         <MediaWrapper>
           {IMG_SRC !== null && (
             <img
@@ -113,6 +123,7 @@ ProfileCard.propTypes = {
   website: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
   images: PropTypes.arrayOf({
