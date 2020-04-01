@@ -6,8 +6,8 @@ dotenv.config({
 
 module.exports = {
   siteMetadata: {
-    title: `Simpler Starter`,
-    description: `A simple starter for Gatsby that doesn't really enforce anything.`,
+    title: `Letswork.to`,
+    description: `let’swork.to/gether has been set up to promote creative freelancers and small agencies who are in need of work due to the COVID-19 pandemic.`,
     author: `@chrish-d`,
   },
   plugins: [
