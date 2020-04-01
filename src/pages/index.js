@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -8,22 +8,50 @@ import ProfileCard from '../components/ProfileCard';
 
 // ====================================
 
-const Index = ({ data }) => {
+const Index = ({ data: query }) => {
+  const [asc, setAsc] = useState(true);
+  const sortedData = Object.keys(query.allAirtable.edges).sort((a, b) => {
+    const x = query.allAirtable.edges[a].node.data.Firstname.toUpperCase();
+    const y = query.allAirtable.edges[b].node.data.Firstname.toUpperCase();
+
+    if (asc) {
+      if (x > y) {
+        return -1;
+      }
+      if (x < y) {
+        return 1;
+      }
+    } else {
+      if (x < y) {
+        return -1;
+      }
+      if (x > y) {
+        return 1;
+      }
+    }
+    return 0;
+  });
+
   return (
     <Layout>
+      <button type="button" onClick={() => setAsc(!asc)}>
+        Sort {!asc ? 'A-Z' : 'Z-A'}
+      </button>
+
       <CardWrapper>
-        {data.allAirtable.edges.map(({ node }) => {
+        {sortedData.map((item) => {
+          const { data } = query.allAirtable.edges[item].node;
           return (
             <ProfileCard
-              key={node.id}
-              city={node.data.City___Nearest_City}
-              website={node.data.Website}
-              firstName={node.data.Firstname}
-              lastName={node.data.Lastname}
-              email={node.data.Email}
-              role={node.data.Type}
-              country={node.data.Country[0].data.Name}
-              images={node.data.Portfolio_Images___Your_Photos}
+              key={item}
+              city={data.City___Nearest_City}
+              website={data.Website}
+              firstName={data.Firstname}
+              lastName={data.Lastname}
+              email={data.Email}
+              role={data.Type}
+              country={data.Country[0].data.Name}
+              images={data.Portfolio_Images___Your_Photos}
             />
           );
         })}
