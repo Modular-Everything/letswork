@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
+import CardControls from '../components/CardControls';
+import ButtonChip from '../components/ButtonChip';
 import CardWrapper from '../components/CardWrapper';
 import ProfileCard from '../components/ProfileCard';
 
@@ -34,9 +36,14 @@ const Index = ({ data: query }) => {
 
   return (
     <Layout>
-      <button type="button" onClick={() => setAsc(!asc)}>
-        Sort {!asc ? 'Z-A' : 'A-Z'}
-      </button>
+      <CardControls>
+        <h2>Sort</h2>
+        <ButtonChip
+          label={!asc ? `Z — A` : `A — Z`}
+          click={() => setAsc(!asc)}
+        />
+        <h3>More sorting/filtering coming soon!</h3>
+      </CardControls>
 
       <CardWrapper>
         {sortedData.map((item) => {
