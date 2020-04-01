@@ -14,7 +14,7 @@ const Index = ({ data: query }) => {
     const x = query.allAirtable.edges[a].node.data.Firstname.toUpperCase();
     const y = query.allAirtable.edges[b].node.data.Firstname.toUpperCase();
 
-    if (asc) {
+    if (!asc) {
       if (x > y) {
         return -1;
       }
@@ -35,7 +35,7 @@ const Index = ({ data: query }) => {
   return (
     <Layout>
       <button type="button" onClick={() => setAsc(!asc)}>
-        Sort {!asc ? 'A-Z' : 'Z-A'}
+        Sort {!asc ? 'Z-A' : 'A-Z'}
       </button>
 
       <CardWrapper>
