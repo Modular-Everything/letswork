@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import tw from 'twin.macro';
+import styled from '@emotion/styled/macro';
+
 import Layout from '../components/Layout';
 import CardControls from '../components/CardControls';
 import ButtonChip from '../components/ButtonChip';
@@ -37,7 +40,7 @@ const Index = ({ data: query }) => {
   return (
     <Layout>
       <CardControls>
-        <h2>Sort</h2>
+        <SortH2>Sort</SortH2>
         <ButtonChip
           label={!asc ? `Z — A` : `A — Z`}
           click={() => setAsc(!asc)}
@@ -67,9 +70,11 @@ const Index = ({ data: query }) => {
   );
 };
 
+export default Index;
+
 // ====================================
 
-export default Index;
+const SortH2 = styled.h2(tw`text-olive`);
 
 // ====================================
 
