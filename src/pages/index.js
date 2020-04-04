@@ -54,6 +54,7 @@ const Index = ({ data: query }) => {
           return (
             <ProfileCard
               key={item}
+              tags={data.Areas_of_Expertise}
               city={data.City___Nearest_City}
               website={data.Website}
               firstName={data.Firstname}
@@ -85,6 +86,7 @@ export const data = graphql`
         node {
           id
           data {
+            Areas_of_Expertise
             City___Nearest_City
             Website
             Firstname

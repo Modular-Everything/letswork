@@ -7,11 +7,13 @@ import tw from 'twin.macro';
 
 import { hasProtocol } from '../../helpers';
 import ButtonTertiary from '../ButtonTertiary';
+import Tags from '../Tags';
 
 // ====================================
 
 const ProfileCard = (props) => {
   const {
+    tags,
     city,
     website,
     email,
@@ -37,6 +39,7 @@ const ProfileCard = (props) => {
             />
           )}
         </MediaWrapper>
+
         <MetaWrapper>
           <div>
             <MetaName>
@@ -49,7 +52,11 @@ const ProfileCard = (props) => {
               {city}, {country}
             </MetaLocation>
           </div>
+          <div>
+            <Tags are={tags} />
+          </div>
         </MetaWrapper>
+
         <ContactButton>
           <ButtonTertiary label={`Contact ${firstName}`} />
         </ContactButton>
@@ -119,6 +126,7 @@ const ContactButton = styled.div(
 // ====================================
 
 ProfileCard.propTypes = {
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   city: PropTypes.string.isRequired,
   website: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
