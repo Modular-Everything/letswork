@@ -9,7 +9,7 @@ import tw from 'twin.macro';
 // ====================================
 
 const Logo = (props) => {
-  const { extend } = props;
+  const { extend, status } = props;
 
   return (
     <Link
@@ -27,6 +27,7 @@ const Logo = (props) => {
         <li>.</li>
         <li>to</li>
         {extend && <li>/{extend}</li>}
+        {status && <li className="status">{status}</li>}
       </Lockup>
     </Link>
   );
@@ -44,7 +45,7 @@ const Lockup = styled.ol(
   css`
     display: inline-flex;
 
-    li {
+    & li {
       &:nth-of-type(1) {
         color: #85c339;
       }
@@ -57,6 +58,10 @@ const Lockup = styled.ol(
       &:nth-of-type(n + 4) {
         color: #418d37;
       }
+      &.status {
+        color: #191919;
+        padding-left: 0.25rem;
+      }
     }
   `,
 );
@@ -65,8 +70,10 @@ const Lockup = styled.ol(
 
 Logo.propTypes = {
   extend: PropTypes.string,
+  status: PropTypes.string,
 };
 
 Logo.defaultProps = {
   extend: null,
+  status: null,
 };
