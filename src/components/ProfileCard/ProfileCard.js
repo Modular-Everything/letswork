@@ -52,9 +52,8 @@ const ProfileCard = (props) => {
               {city}, {country}
             </MetaLocation>
           </div>
-          <div>
-            <Tags are={tags} />
-          </div>
+
+          <Tags are={tags} />
         </MetaWrapper>
 
         <ContactButton>

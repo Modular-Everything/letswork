@@ -24,9 +24,9 @@ export default Tags;
 
 // ====================================
 
-const TagContainer = styled.li(
+const TagContainer = styled.ul(
   tw`
-    flex -m-1
+    flex -m-1 overflow-auto
   `,
 );
 
