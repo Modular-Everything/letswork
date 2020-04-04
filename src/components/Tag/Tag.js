@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { css } from '@emotion/core';
 import styled from '@emotion/styled/macro';
 import tw from 'twin.macro';
 
@@ -18,6 +19,9 @@ export default Tag;
 const Item = styled.li(
   tw`
     bg-grass inline py-2 px-3 uppercase tracking-widest text-xs m-1 text-black
+  `,
+  css`
+    white-space: nowrap;
   `,
 );
 

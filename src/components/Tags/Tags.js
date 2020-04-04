@@ -26,7 +26,7 @@ export default Tags;
 
 const TagContainer = styled.li(
   tw`
-    flex flex-wrap -m-1
+    flex -m-1
   `,
 );
 
