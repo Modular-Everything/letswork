@@ -4,17 +4,32 @@
 
 @font-face {
   font-family: 'NB International Pro';
-  src: url('../../static/type/nb_international_pro_regular-webfont.eot');
-  src: url('../../static/type/nb_international_pro_regular-webfont.eot?#iefix')
+  src: url('../../static/type/nb_international_pro_bold_italic-webfont.eot');
+  src: url('../../static/type/nb_international_pro_bold_italic-webfont.eot?#iefix')
       format('embedded-opentype'),
-    url('../../static/type/nb_international_pro_regular-webfont.woff2')
+    url('../../static/type/nb_international_pro_bold_italic-webfont.woff2')
       format('woff2'),
-    url('../../static/type/nb_international_pro_regular-webfont.woff')
+    url('../../static/type/nb_international_pro_bold_italic-webfont.woff')
       format('woff'),
-    url('../../static/type/nb_international_pro_regular-webfont.ttf')
+    url('../../static/type/nb_international_pro_bold_italic-webfont.ttf')
+      format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NB International Pro';
+  src: url('../../static/type/nb_international_pro_italic-webfont.eot');
+  src: url('../../static/type/nb_international_pro_italic-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('../../static/type/nb_international_pro_italic-webfont.woff2')
+      format('woff2'),
+    url('../../static/type/nb_international_pro_italic-webfont.woff')
+      format('woff'),
+    url('../../static/type/nb_international_pro_italic-webfont.ttf')
       format('truetype');
   font-weight: 400;
-  font-style: normal;
+  font-style: italic;
 }
 
 @font-face {
@@ -44,5 +59,35 @@
     url('../../static/type/nb_international_pro_bold-webfont.ttf')
       format('truetype');
   font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NB International Pro';
+  src: url('../../static/type/nb_international_pro_medium_italic-webfont.eot');
+  src: url('../../static/type/nb_international_pro_medium_italic-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('../../static/type/nb_international_pro_medium_italic-webfont.woff2')
+      format('woff2'),
+    url('../../static/type/nb_international_pro_medium_italic-webfont.woff')
+      format('woff'),
+    url('../../static/type/nb_international_pro_medium_italic-webfont.ttf')
+      format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NB International Pro';
+  src: url('../../static/type/nb_international_pro_regular-webfont.eot');
+  src: url('../../static/type/nb_international_pro_regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('../../static/type/nb_international_pro_regular-webfont.woff2')
+      format('woff2'),
+    url('../../static/type/nb_international_pro_regular-webfont.woff')
+      format('woff'),
+    url('../../static/type/nb_international_pro_regular-webfont.ttf')
+      format('truetype');
+  font-weight: 400;
   font-style: normal;
 }
