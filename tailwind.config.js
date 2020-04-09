@@ -19,6 +19,10 @@ module.exports = {
       letterSpacing: {
         widest: '0.25em',
       },
+
+      boxShadow: {
+        card: '0 4px 8px rgba(0,0,0,0.1), 0 0 4px rgba(0,0,0,0.1)',
+      },
     },
   },
   variants: {},

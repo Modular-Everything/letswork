@@ -70,7 +70,7 @@ export default ProfileCard;
 
 const Card = styled.li(
   tw`
-    font-sans bg-white shadow-md overflow-hidden rounded-md
+    font-sans bg-white shadow-card overflow-hidden rounded-md
   `,
 );
 
