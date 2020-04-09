@@ -45,7 +45,7 @@ const Index = ({ data: query }) => {
           label={!asc ? `Z — A` : `A — Z`}
           click={() => setAsc(!asc)}
         />
-        <h3>More sorting/filtering coming soon!</h3>
+        <Note>More sorting/filtering coming soon!</Note>
       </CardControls>
 
       <CardWrapper>
@@ -75,7 +75,17 @@ export default Index;
 
 // ====================================
 
-const SortH2 = styled.h2(tw`text-olive`);
+const SortH2 = styled.h2(
+  tw`
+    text-olive font-sans
+  `,
+);
+const Note = styled.h3(
+  tw`
+    font-sans w-48
+    sm:w-auto
+  `,
+);
 
 // ====================================
 

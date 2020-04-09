@@ -23,16 +23,20 @@ export default CardControls;
 
 const Controls = styled.section(
   tw`
-    flex
-    items-center
-    mt-16
+    flex items-center mt-16
   `,
   css`
     h2 {
-      ${tw`mr-8`}
+      ${tw`
+        mr-4
+        sm:mr-8
+      `}
     }
     h3 {
-      ${tw`text-gray-500 text-sm ml-8`}
+      ${tw`
+        text-gray-500 text-sm ml-4
+        sm:ml-8
+      `}
     }
   `,
 );

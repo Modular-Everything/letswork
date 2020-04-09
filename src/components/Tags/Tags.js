@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { css } from '@emotion/core';
 import styled from '@emotion/styled/macro';
 import tw from 'twin.macro';
 
@@ -26,7 +27,10 @@ export default Tags;
 
 const TagContainer = styled.ul(
   tw`
-    flex -m-1 overflow-auto
+    flex -m-1 overflow-x-auto scrolling-touch
+  `,
+  css`
+    -webkit-appearance: none;
   `,
 );
 

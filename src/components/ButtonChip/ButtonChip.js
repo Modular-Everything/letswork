@@ -22,7 +22,7 @@ export default ButtonChip;
 
 const Chip = styled.button(
   tw`
-    py-2 px-4 font-sans bg-white shadow-md rounded-md text-left
+    py-2 px-4 font-sans bg-white shadow-md rounded-md text-left whitespace-no-wrap
   `,
 );
 
