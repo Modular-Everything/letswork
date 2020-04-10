@@ -62,7 +62,8 @@ export default About;
 
 const Wrapper = styled.div(
   tw`
-    my-16 mx-auto w-6/12
+    my-8 mx-auto w-10/12
+    sm:my-16 sm:w-6/12
   `,
 );
 
