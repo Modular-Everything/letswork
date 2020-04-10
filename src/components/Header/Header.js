@@ -1,8 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql, useStaticQuery } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 
-// import { css } from '@emotion/core';
+import { css } from '@emotion/core';
 import styled from '@emotion/styled/macro';
 import tw from 'twin.macro';
 
@@ -26,7 +26,7 @@ const Header = () => {
   `);
 
   return (
-    <HeaderWrap>
+    <BG>
       <Helmet>
         <title>{data.site.siteMetadata.title}</title>
         <meta name="author" content={data.site.siteMetadata.author} />
@@ -34,11 +34,23 @@ const Header = () => {
       </Helmet>
 
       <Container>
-        <LogoWrapper>
-          <Logo extend="test" status="beta" />
-        </LogoWrapper>
+        <Wrapper>
+          <LogoSizer>
+            <Logo extend="test" status="beta" />
+          </LogoSizer>
+          <Navigation role="navigation">
+            <ul>
+              <Link to="/" activeClassName="active">
+                Home
+              </Link>
+              <Link to="/about" activeClassName="active">
+                About
+              </Link>
+            </ul>
+          </Navigation>
+        </Wrapper>
       </Container>
-    </HeaderWrap>
+    </BG>
   );
 };
 
@@ -46,14 +58,46 @@ export default Header;
 
 // ====================================
 
-const HeaderWrap = styled.header(
+const BG = styled.header(
   tw`
     bg-grass py-8
   `,
 );
 
-const LogoWrapper = styled.div(
+// ======
+
+const Wrapper = styled.div(
+  tw`
+    flex flex-row justify-between items-center
+  `,
+);
+
+// ======
+
+const LogoSizer = styled.div(
   tw`
     text-2xl
   `,
 );
+
+// ======
+
+const Navigation = styled.nav(
+  css`
+    & a {
+      ${tw`
+        text-olive mr-8 last:mr-0
+      `}
+
+      &:hover {
+        ${tw`underline`}
+      }
+    }
+
+    & .active {
+      ${tw`text-tree`}
+    }
+  `,
+);
+
+// ====================================

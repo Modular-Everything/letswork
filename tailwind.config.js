@@ -10,6 +10,7 @@ module.exports = {
         lime: '#7DFF00',
         olive: '#095100',
         grass: '#F5FFE9',
+        tree: '#65AC2A',
       },
 
       spacing: {
