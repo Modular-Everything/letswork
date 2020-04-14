@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql, useStaticQuery } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 
 import { css } from '@emotion/core';
 import styled from '@emotion/styled/macro';
@@ -26,7 +26,7 @@ const Header = () => {
   `);
 
   return (
-    <HeaderWrap>
+    <BG>
       <Helmet>
         <title>{data.site.siteMetadata.title}</title>
         <meta name="author" content={data.site.siteMetadata.author} />
@@ -34,22 +34,23 @@ const Header = () => {
       </Helmet>
 
       <Container>
-        <LogoWrapper>
-          <Logo />
-        </LogoWrapper>
-        <ComingSoon>
-          <h1>
-            Coming soon{' '}
-            <span role="img" aria-label="Shifty eyes">
-              👀
-            </span>
-          </h1>
-          <p>
-            We&lsquo;re working hard to get this ready, please check back soon.
-          </p>
-        </ComingSoon>
+        <Wrapper>
+          <LogoSizer>
+            <Logo extend="test" status="beta" />
+          </LogoSizer>
+          <Navigation role="navigation">
+            <ul>
+              <Link to="/" activeClassName="active">
+                Home
+              </Link>
+              <Link to="/about" activeClassName="active">
+                About
+              </Link>
+            </ul>
+          </Navigation>
+        </Wrapper>
       </Container>
-    </HeaderWrap>
+    </BG>
   );
 };
 
@@ -57,26 +58,46 @@ export default Header;
 
 // ====================================
 
-const HeaderWrap = styled.header(
+const BG = styled.header(
   tw`
-    bg-grass py-8 mb-16 h-screen
+    bg-grass py-8
   `,
 );
 
-const LogoWrapper = styled.div(
+// ======
+
+const Wrapper = styled.div(
+  tw`
+    flex flex-row justify-between items-center
+  `,
+);
+
+// ======
+
+const LogoSizer = styled.div(
   tw`
     text-2xl
   `,
 );
 
-const ComingSoon = styled.div(
-  tw`
-    mt-4 text-olive
-  `,
+// ======
 
+const Navigation = styled.nav(
   css`
-    & h1 {
-      ${tw`font-bold`}
+    & a {
+      ${tw`
+        text-olive mr-8 last:mr-0
+      `}
+
+      &:hover {
+        ${tw`underline`}
+      }
+    }
+
+    & .active {
+      ${tw`text-tree`}
     }
   `,
 );
+
+// ====================================

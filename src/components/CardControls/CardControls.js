@@ -5,39 +5,47 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled/macro';
 import tw from 'twin.macro';
 
+import Container from '../Container';
+
 // ====================================
 
-const Container = (props) => {
-  const { children } = props;
-  return <PageContainer>{children}</PageContainer>;
+const CardControls = ({ children }) => {
+  return (
+    <Container>
+      <Controls>{children}</Controls>
+    </Container>
+  );
 };
 
-export default Container;
+export default CardControls;
 
 // ====================================
 
-const breakpoints = [640, 768, 1024, 1280];
-const PageContainer = styled.div(
+const Controls = styled.section(
   tw`
-    mx-auto
-    px-4
-    w-full
+    flex items-center mt-16
   `,
   css`
-    ${breakpoints.map(
-      (minWidth) =>
-        `@media(min-width: ${minWidth}px) { max-width: ${minWidth}px }`,
-    )}
+    h2 {
+      ${tw`
+        mr-4
+        sm:mr-8
+      `}
+    }
+    h3 {
+      ${tw`
+        text-gray-500 text-sm ml-4
+        sm:ml-8
+      `}
+    }
   `,
 );
 
 // ====================================
 
-Container.propTypes = {
+CardControls.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
 };
-
-// ====================================

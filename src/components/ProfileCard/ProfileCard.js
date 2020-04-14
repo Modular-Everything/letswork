@@ -7,18 +7,28 @@ import tw from 'twin.macro';
 
 import { hasProtocol } from '../../helpers';
 import ButtonTertiary from '../ButtonTertiary';
+import Tags from '../Tags';
 
 // ====================================
 
 const ProfileCard = (props) => {
-  const { city, website, firstName, lastName, role, country, images } = props;
-  const IMG_SRC = images[0].thumbnails !== null ? images[0].thumbnails : null;
-
-  console.log(images[0].thumbnails);
+  const {
+    tags,
+    city,
+    website,
+    email,
+    firstName,
+    lastName,
+    role,
+    country,
+    images,
+  } = props;
+  const IMG_SRC = images !== null ? images[0].thumbnails : null;
+  const CONTACT = website ? hasProtocol(website) : `mailto:${email}`;
 
   return (
     <Card>
-      <a href={hasProtocol(website)} target="_blank" rel="noopener noreferrer">
+      <a href={CONTACT} target="_blank" rel="noopener noreferrer">
         <MediaWrapper>
           {IMG_SRC !== null && (
             <img
@@ -29,6 +39,7 @@ const ProfileCard = (props) => {
             />
           )}
         </MediaWrapper>
+
         <MetaWrapper>
           <div>
             <MetaName>
@@ -41,7 +52,10 @@ const ProfileCard = (props) => {
               {city}, {country}
             </MetaLocation>
           </div>
+
+          <Tags are={tags} />
         </MetaWrapper>
+
         <ContactButton>
           <ButtonTertiary label={`Contact ${firstName}`} />
         </ContactButton>
@@ -56,7 +70,7 @@ export default ProfileCard;
 
 const Card = styled.li(
   tw`
-    font-sans bg-white shadow-md overflow-hidden rounded-md
+    font-sans bg-white shadow-card overflow-hidden rounded-md
   `,
 );
 
@@ -111,10 +125,12 @@ const ContactButton = styled.div(
 // ====================================
 
 ProfileCard.propTypes = {
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   city: PropTypes.string.isRequired,
   website: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
   images: PropTypes.arrayOf({
