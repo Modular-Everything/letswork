@@ -2,6 +2,7 @@ import React from 'react';
 
 import tw from 'twin.macro';
 import styled from '@emotion/styled/macro';
+import { css } from '@emotion/core';
 
 import Layout from '../components/Layout';
 import Container from '../components/Container';
@@ -127,11 +128,17 @@ const Wrapper = styled.div(
     my-8 mx-auto w-10/12
     sm:my-16 sm:w-6/12
   `,
+
+  css`
+    & a:hover {
+      ${tw`underline`}
+    }
+  `,
 );
 
 const H2 = styled.h2(
   tw`
-    font-medium text-black font-sans text-lg leading-relaxed mt-8 mb-2
+    font-medium text-olive font-sans text-lg leading-relaxed mt-8 mb-2
     first:mt-0
   `,
 );
@@ -145,7 +152,7 @@ const H3 = styled.h2(
 
 const P = styled.p(
   tw`
-    text-black font-sans text-base text-black-light leading-relaxed mb-2
+    text-gray-800 font-sans text-base text-black-light leading-relaxed mb-2
     last:mb-0
   `,
 );
