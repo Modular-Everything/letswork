@@ -13,7 +13,7 @@ const Logo = (props) => {
 
   return (
     <Link
-      to="/"
+      to="/gether"
       css={css`
         &:hover {
           ${tw`text-lime`}
