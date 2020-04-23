@@ -4,8 +4,8 @@ import tw from 'twin.macro';
 import styled from '@emotion/styled/macro';
 import { css } from '@emotion/core';
 
-import Layout from '../components/Layout';
-import Container from '../components/Container';
+import Layout from '../../components/Layout';
+import Container from '../../components/Container';
 
 // ====================================
 
