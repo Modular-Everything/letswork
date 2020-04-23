@@ -40,10 +40,10 @@ const Header = () => {
           </LogoSizer>
           <Navigation role="navigation">
             <ul>
-              <Link to="/" activeClassName="active">
+              <Link to="/gether" activeClassName="active">
                 Home
               </Link>
-              <Link to="/about" activeClassName="active">
+              <Link to="/gether/about" activeClassName="active">
                 About
               </Link>
             </ul>
