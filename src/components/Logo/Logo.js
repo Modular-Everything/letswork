@@ -59,7 +59,7 @@ const Lockup = styled.ol(
         color: #418d37;
       }
       &.status {
-        color: #191919;
+        color: #d7f1b7;
         padding-left: 0.25rem;
       }
     }

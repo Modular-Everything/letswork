@@ -36,7 +36,7 @@ const Header = () => {
       <Container>
         <Wrapper>
           <LogoSizer>
-            <Logo extend="test" status="beta" />
+            <Logo extend="gether" status="beta" />
           </LogoSizer>
           <Navigation role="navigation">
             <ul>
