@@ -22,12 +22,12 @@ const Logo = (props) => {
       `}
     >
       <Lockup>
-        <li>let’s</li>
-        <li>work</li>
-        <li>.</li>
-        <li>to</li>
-        {extend && <li>/{extend}</li>}
-        {status && <li className="status">{status}</li>}
+        <span>let’s</span>
+        <span>work</span>
+        <span>.</span>
+        <span>to</span>
+        {extend && <span>/{extend}</span>}
+        {status && <span className="status">{status}</span>}
       </Lockup>
     </Link>
   );
@@ -37,15 +37,15 @@ export default Logo;
 
 // ====================================
 
-const Lockup = styled.ol(
+const Lockup = styled.span(
   tw`
     tracking-normal mr-1 font-sans
   `,
 
   css`
-    display: inline-flex;
+    display: inspanne-flex;
 
-    & li {
+    & span {
       &:nth-of-type(1) {
         color: #85c339;
       }
