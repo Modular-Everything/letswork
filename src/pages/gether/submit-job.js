@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+
+import { gsap } from 'gsap';
+// import tw from 'twin.macro';
+import styled from '@emotion/styled/macro';
 
 import Layout from '../../components/Layout';
 import Container from '../../components/Container';
@@ -34,16 +38,38 @@ const About = () => {
 
   // ==============
 
+  const StepsRef = useRef(null);
+
+  useEffect(() => {
+    const getAllSteps = StepsRef.current.children[0].children;
+    const getActiveStep = getAllSteps[activeStep - 1];
+
+    gsap.to(getAllSteps, { opacity: 0, ease: 'power3' });
+    gsap.to(getActiveStep, { opacity: 1, ease: 'power3' });
+  });
+
+  const nextStep = () => {
+    setActiveStep(activeStep + 1);
+  };
+
+  const prevStep = () => {
+    setActiveStep(activeStep - 1);
+  };
+
+  // ==============
+
   return (
     <Layout>
       <Container>
-        <h2>
-          Active Step: {activeStep}/{totalSteps}
-        </h2>
+        <div className="stepCounter">
+          <h2>
+            Step: {activeStep} of {totalSteps}
+          </h2>
+        </div>
 
-        <Form handleSubmit={handleSubmit}>
-          <div style={{ opacity: activeStep === 1 ? '1' : '0' }}>
-            <div>
+        <Steps ref={StepsRef}>
+          <Form handleSubmit={handleSubmit}>
+            <Step data-step="1">
               <Label>
                 <span>My name is</span>
                 <Input
@@ -73,30 +99,26 @@ const About = () => {
                   required
                 />
               </Label>
-            </div>
-          </div>
+            </Step>
 
-          <div style={{ opacity: activeStep === 2 ? '1' : '0' }}>
-            <div>Another step</div>
-          </div>
+            <Step data-step="2">Another step</Step>
 
-          <div style={{ opacity: activeStep === 3 ? '1' : '0' }}>
-            <div>
+            <Step data-step="3">
               <button type="submit">Submit</button>
-            </div>
-          </div>
-        </Form>
+            </Step>
+          </Form>
+        </Steps>
 
         <hr style={{ margin: '48px 0' }} />
 
-        <div>
+        <div className="stepControls">
           {activeStep > 1 && (
-            <button type="button" onClick={() => setActiveStep(activeStep - 1)}>
+            <button type="button" onClick={prevStep}>
               Previous Step
             </button>
           )}
           {activeStep !== totalSteps && (
-            <button type="button" onClick={() => setActiveStep(activeStep + 1)}>
+            <button type="button" onClick={nextStep}>
               Next Step
             </button>
           )}
@@ -117,3 +139,11 @@ const About = () => {
 };
 
 export default About;
+
+// ====================================
+
+const Steps = styled.div();
+
+// ======
+
+const Step = styled.div();
