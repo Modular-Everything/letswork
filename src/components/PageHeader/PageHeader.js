@@ -22,7 +22,7 @@ const PageHeader = () => {
             has been set up to promote creative freelancers and small agencies
             who are in need of work due to the COVID-19 pandemic.
           </p>
-          <Link to="/about">
+          <Link to="/gether/about">
             <ButtonTertiary
               label="Find out more"
               fullWidth={false}
