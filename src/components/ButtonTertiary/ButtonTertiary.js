@@ -42,6 +42,10 @@ const ButtonWrapper = styled.div(
     flex flex-row text-xl
   `,
   css`
+    & span {
+      ${tw`truncate mr-2`}
+    }
+
     &:hover span {
       text-decoration: underline;
     }
