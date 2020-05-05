@@ -57,7 +57,7 @@ const Index = ({ data: query }) => {
               tags={data.Areas_of_Expertise}
               city={data.City___Nearest_City}
               website={data.Website}
-              firstName={data.Firstname}
+              firstName={`Contact ${data.Firstname}`}
               lastName={data.Lastname}
               email={data.Email}
               role={data.Type}

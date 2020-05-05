@@ -32,6 +32,11 @@ module.exports = {
             baseId: process.env.AIRTABLE_BASE,
             tableName: process.env.AIRTABLE_TABLE_NAME_LINKED,
           },
+          {
+            baseId: process.env.AIRTABLE_BASE_USEFUL,
+            tableName: process.env.AIRTABLE_TABLE_NAME_USEFUL,
+            queryName: `links`,
+          },
         ],
       },
     },
