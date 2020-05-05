@@ -43,21 +43,24 @@ const ProfileCard = (props) => {
         <MetaWrapper>
           <div>
             <MetaName>
-              {firstName} {lastName}
+              {firstName && firstName} {lastName && lastName}
             </MetaName>
             <MetaRole>{role}</MetaRole>
           </div>
-          <div>
-            <MetaLocation>
-              {city}, {country}
-            </MetaLocation>
-          </div>
 
-          <Tags are={tags} />
+          {city && (
+            <div>
+              <MetaLocation>
+                {city} {country && `, ${country}`}
+              </MetaLocation>
+            </div>
+          )}
+
+          {tags && <Tags are={tags} />}
         </MetaWrapper>
 
         <ContactButton>
-          <ButtonTertiary label={`Contact ${firstName}`} />
+          <ButtonTertiary label={`${firstName}`} />
         </ContactButton>
       </a>
     </Card>
@@ -100,7 +103,11 @@ const MetaWrapper = styled.div(
 
 const MetaName = styled.h2(
   tw`
-    font-bold text-xl
+    font-bold text-xl truncate
+  `,
+
+  css`
+    max-width: 87%;
   `,
 );
 
@@ -125,21 +132,33 @@ const ContactButton = styled.div(
 // ====================================
 
 ProfileCard.propTypes = {
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  city: PropTypes.string.isRequired,
-  website: PropTypes.string.isRequired,
-  firstName: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  role: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string),
+  city: PropTypes.string,
+  website: PropTypes.string,
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  email: PropTypes.string,
+  role: PropTypes.string,
+  country: PropTypes.string,
   images: PropTypes.arrayOf({
     thumbnails: PropTypes.objectOf({
       large: PropTypes.objectOf({
         url: PropTypes.string.isRequired,
         height: PropTypes.number.isRequired,
         width: PropTypes.number.isRequired,
-      }).isRequired,
-    }).isRequired,
-  }).isRequired,
+      }),
+    }),
+  }),
+};
+
+ProfileCard.defaultProps = {
+  tags: null,
+  city: null,
+  website: null,
+  firstName: null,
+  lastName: null,
+  email: null,
+  role: null,
+  country: null,
+  images: null,
 };
