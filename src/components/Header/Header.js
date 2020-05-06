@@ -46,9 +46,6 @@ const Header = () => {
               <Link to="/gether/about" activeClassName="active">
                 About
               </Link>
-              <Link to="/gether/useful-links" activeClassName="active">
-                Useful Links
-              </Link>
             </ul>
           </Navigation>
         </Wrapper>
